@@ -1,0 +1,23 @@
+.main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.top-title {
+    text-align: center;
+    margin: 30px 0;
+    h2 {
+        font-weight: 100;
+        font-size: 30px;
+    }
+}
+
+.intros {
+    display: flex;
+}
+
+.intro {
+    width: 50%;
+    box-sizing: border-box;
+    border: 1px solid whitesmoke;
+}
