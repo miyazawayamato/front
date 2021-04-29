@@ -4,7 +4,7 @@ import Menu from './components/menu/Menu';
 
 const Routing = () => {
     return(
-        <div>
+        <div className="main">
             <Router >
             <Switch>
                 <Route exact path="/" component={TopPage}></Route>
