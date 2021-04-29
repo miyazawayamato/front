@@ -8,7 +8,7 @@ const TopPage = () => {
     const handleLink = (path: string) : void => history.push(path);
     
     return(
-        <div className="main">
+        <div>
             <div className="top-title">
                 <h2>在庫管理アプリ</h2>
             </div>
