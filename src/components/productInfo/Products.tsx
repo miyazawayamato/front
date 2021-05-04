@@ -1,6 +1,6 @@
 import Box from "./Box";
 import Modal from "./Modal";
-import React, { useState } from "react";
+import React, { useState} from "react";
 
 //カウント機能(スピナー機能)
 //商品名と金額と個数
@@ -18,6 +18,9 @@ const Products = () => {
         changeName(name)
         
     }
+    
+    
+    
     const deleteData = () => {
         
         const deleteData = {

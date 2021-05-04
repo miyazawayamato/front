@@ -1,3 +1,6 @@
+// productsやcustoerと同じ容量
+
+
 const History = () => {
     
     return(
