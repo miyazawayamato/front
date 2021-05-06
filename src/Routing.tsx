@@ -3,7 +3,7 @@ import TopPage from './components/top/TopPage';
 import Menu from './components/menu/Menu';
 import Customer from './components/customer/Customer';
 import Delivery from './components/delivery/Delivery';
-import SelectCost from './components/delivery/SelectCosto';
+import SelectCusto from './components/delivery/SelectCusto';
 import History from './components/history/History';
 import Products from './components/productInfo/Products';
 import User from './components/user/User';
@@ -17,7 +17,7 @@ const Routing = () => {
                 <Route path="/mainmenu" component={Menu}></Route>
                 <Route path="/customers" component={Customer }></Route>
                 <Route path="/derivery" component={Delivery}></Route>
-                <Route path="/select/customer" component={SelectCost}></Route>
+                <Route path="/select/customer" component={SelectCusto}></Route>
                 <Route path="/history" component={History}></Route>
                 <Route path="/products" component={Products}></Route>
                 <Route path="/users" component={User}></Route>

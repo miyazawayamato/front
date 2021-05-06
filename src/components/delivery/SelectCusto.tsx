@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom';
 
 
-const SelectCosto = () => {
+const SelectCusto = () => {
     
     const history = useHistory();
     const handleLink = (path: string) : void => history.push(path);
@@ -17,4 +17,4 @@ const SelectCosto = () => {
     );
 }
 
-export default SelectCosto
+export default SelectCusto
