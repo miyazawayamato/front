@@ -1,7 +1,6 @@
 import Intro from './Intro';
 import { useHistory } from 'react-router-dom';
-
-
+//デザイン
 const TopPage = () => {
     
     const history = useHistory();
