@@ -1,8 +1,10 @@
 import Box from "./Box";
 import Modal from "./Modal";
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import ApiGet from "../../functions/ApiGet";
 import AddProduct from "./AddProduct";
+import axios from 'axios';
+
 //カウント機能(スピナー機能)
 //商品名と金額と個数
 //保存ボタン(失敗のメッセージ)と削除ボタン(モーダル)
@@ -12,6 +14,38 @@ import AddProduct from "./AddProduct";
 const Products = () => {
     
     const [name, changeName] = useState<string>("")
+    // const [products, setProducts] = useState<any>();
+    const [prod, setProd] = useState();
+    
+    useEffect(()=> {
+        const fetchall = async () => {
+            
+            const res = await axios.get("http://localhost:8080/api/product/all");
+            // setProducts(res.data);
+            const productsData = res.data
+            
+            const Boxs = productsData.map((pro : any) => {
+                console.log(pro.name)
+                return(
+                    <Box 
+                        key={pro.id}
+                        id={pro.id}
+                        name={pro.name}
+                        stock={pro.stock}
+                        price={pro.price}
+                        func={openModal}
+                    />
+                );
+                
+            })
+            setProd(Boxs)
+            
+        }
+        fetchall();
+        
+    },[])
+    
+    
     //idと名前も 
     const openModal = (id : string, name : string) => {
         
@@ -30,35 +64,20 @@ const Products = () => {
         }
         console.log(deleteData)
     }
-    
-    // ApiGet("http://localhost:8080/api/product/all");
-    
     return(
         <div>
+            {/* {console.table(products)} */}
             <AddProduct />
             <table>
                 <tbody>
-                    <Box 
+                    {prod}
+                    {/* <Box 
                         id="1"
                         name="商品A"
                         stock="23"
                         price="324"
                         func={openModal}
-                        />
-                    <Box 
-                        id="2"
-                        name="商品B"
-                        stock="2334"
-                        price="994"
-                        func={openModal}
-                        />
-                    <Box 
-                        id="3"
-                        name="商品C"
-                        stock="7"
-                        price="300"
-                        func={openModal}
-                    />
+                    /> */}
                 </tbody>
             </table>
             <Modal name={name} deledata={deleteData} />

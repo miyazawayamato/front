@@ -7,6 +7,8 @@ interface Post {
     price: string;
 }
 
+// 商品から消す
+
 const Addproduct = () => {
     
     const [newValues, setValues] = useState({newName: "", newStock : "", newPrice: ""});
