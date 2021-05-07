@@ -7,7 +7,7 @@ import React, { useState} from "react";
 //保存ボタン(失敗のメッセージ)と削除ボタン(モーダル)
 
 
-//
+
 const Products = () => {
     
     const [name, changeName] = useState<string>("")
