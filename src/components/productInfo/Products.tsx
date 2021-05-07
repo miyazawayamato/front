@@ -2,6 +2,7 @@ import Box from "./Box";
 import Modal from "./Modal";
 import React, { useState} from "react";
 import ApiGet from "../../functions/ApiGet";
+import AddProduct from "./AddProduct";
 //カウント機能(スピナー機能)
 //商品名と金額と個数
 //保存ボタン(失敗のメッセージ)と削除ボタン(モーダル)
@@ -30,10 +31,11 @@ const Products = () => {
         console.log(deleteData)
     }
     
-    ApiGet("http://localhost:8080/api/product/all");
+    // ApiGet("http://localhost:8080/api/product/all");
     
     return(
         <div>
+            <AddProduct />
             <table>
                 <tbody>
                     <Box 
