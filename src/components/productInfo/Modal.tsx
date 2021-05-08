@@ -3,17 +3,19 @@ import React, { useState } from "react";
 type Props = {
     name:string;
     deledata:() => void
+    disp:string
+    close:() => void
 }
 
-const Modal:React.FC<Props> = ({name, deledata}) => {
+const Modal:React.FC<Props> = ({name, deledata, disp, close}) => {
     
     
     
     return(
-        <div>
+        <div className={disp}>
             <p>{name}</p>
             <button onClick={deledata}>削除します</button>
-            <button>×</button>
+            <button onClick={close}>×</button>
         </div>
     );
 }

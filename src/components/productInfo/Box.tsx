@@ -18,8 +18,6 @@ const Box:React.FC<Props> = ({id, name, stock, price,func}) => {
         const eValue:string  = e.target.value
         const eName = e.target.name
         setValues({ ...values, [eName] : eValue });
-        // console.log(values.name);
-        // console.log(values.stock);
     }
     
     const putData = () => {

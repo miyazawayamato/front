@@ -1,12 +1,9 @@
 import axios from 'axios';
 
-const ApiGet : any = (url : string) => {
+const ApiGet : any = (url : string, callback : any) => {
     axios
         .get(url)
-        .then((results) => {
-            // console.log(results.data);
-            return results;
-        })
+        .then(response => (callback(response)))
         .catch((error) => {
             console.log('通信失敗');
             console.log(error.status);

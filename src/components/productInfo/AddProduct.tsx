@@ -34,6 +34,7 @@ const Addproduct = () => {
         
         const result = await ApiPost("http://localhost:8080/api/product/create", PostData);
         console.table(result)
+        window.location.reload();
     }
     
     return(

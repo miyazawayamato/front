@@ -16,6 +16,7 @@ const Products = () => {
     const [name, changeName] = useState<string>("")
     // const [products, setProducts] = useState<any>();
     const [prod, setProd] = useState();
+    const [disp, Toggle] = useState("none");
     
     useEffect(()=> {
         const fetchall = async () => {
@@ -50,8 +51,15 @@ const Products = () => {
     const openModal = (id : string, name : string) => {
         
         console.log(id)
+        
+        Toggle("block")
+        // cssの調整
         changeName(name)
         
+    }
+    
+    const closeModal = () => {
+        Toggle("none")
     }
     
     const deleteData = () => {
@@ -80,7 +88,7 @@ const Products = () => {
                     /> */}
                 </tbody>
             </table>
-            <Modal name={name} deledata={deleteData} />
+            <Modal name={name} deledata={deleteData} disp={disp} close={closeModal}/>
         </div>
     );
 }

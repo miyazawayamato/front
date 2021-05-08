@@ -4,6 +4,16 @@ import axios from 'axios';
 
 const Customer = () => {
     
+    const [prod, setProd] = useState();
+    
+    useEffect(()=> {
+        const fetchall = async () => {
+            
+        }
+        fetchall();
+        
+    },[])
+    
     return (
         <div>
             <p>納品先</p>
