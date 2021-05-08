@@ -1,3 +1,7 @@
+import React, { useState, useEffect} from "react";
+import ApiGet from "../../functions/ApiGet";
+import axios from 'axios';
+
 const Customer = () => {
     
     return (
