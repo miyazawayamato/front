@@ -63,9 +63,9 @@ const Products = () => {
     
     const deleteData = () => {
         
-        ApiDelete("http://localhost:8080/api/product/delete", sendId)
+        ApiDelete("http://localhost:8080/api/product/delete/" + sendId)
         
-        // window.location.reload();
+        window.location.reload();
     }
     return(
         <div>

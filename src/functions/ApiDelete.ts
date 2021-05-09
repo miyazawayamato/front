@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const ApiDelete = (url : string, sendId : string) => {
+const ApiDelete = (url : string) => {
     
     // return axios.delete(url, data);
     
-    axios.delete(url, { data : sendId}).then(res => {
+    axios.delete(url).then(res => {
         console.log(res.data);
         return res;
     })
