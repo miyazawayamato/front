@@ -1,9 +1,9 @@
+import React, { useState, useEffect} from "react";
+import axios from 'axios';
 import Box from "./Box";
 import Modal from "./Modal";
-import React, { useState, useEffect} from "react";
-import ApiGet from "../../functions/ApiGet";
 import AddProduct from "./AddProduct";
-import axios from 'axios';
+import ApiDelete from "../../functions/ApiDelete";
 
 //カウント機能(スピナー機能)
 //商品名と金額と個数
@@ -14,7 +14,7 @@ import axios from 'axios';
 const Products = () => {
     
     const [name, changeName] = useState<string>("")
-    // const [products, setProducts] = useState<any>();
+    const [sendId, setSendId] = useState<string>("");
     const [prod, setProd] = useState();
     const [disp, Toggle] = useState("none");
     
@@ -26,7 +26,7 @@ const Products = () => {
             const productsData = res.data
             
             const Boxs = productsData.map((pro : any) => {
-                console.log(pro.name)
+                // console.log(pro.name)
                 return(
                     <Box 
                         key={pro.id}
@@ -47,15 +47,14 @@ const Products = () => {
     },[])
     
     
-    //idと名前も 
     const openModal = (id : string, name : string) => {
         
-        console.log(id)
-        
-        Toggle("block")
-        // cssの調整
+        //送る用のidにセット
+        setSendId(id)
+        // モーダルに表示される名前をセット
         changeName(name)
-        
+        //モーダルを開く、クラスの変更
+        Toggle("block")
     }
     
     const closeModal = () => {
@@ -64,13 +63,9 @@ const Products = () => {
     
     const deleteData = () => {
         
-        const deleteData = {
-            
-            name:name,
-            body:"duhf"
-            
-        }
-        console.log(deleteData)
+        ApiDelete("http://localhost:8080/api/product/delete", sendId)
+        
+        // window.location.reload();
     }
     return(
         <div>

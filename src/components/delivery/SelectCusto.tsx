@@ -1,18 +1,43 @@
 import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect} from "react";
+import axios from 'axios';
 
 
 const SelectCusto = () => {
     
     const history = useHistory();
     const handleLink = (path: string) : void => history.push(path);
+    const [buttons, setButtons] = useState();
+    
+    useEffect(()=> {
+        const fetchall = async () => {
+            
+            const res = await axios.get("http://localhost:8080/api/customers");
+            // setProducts(res.data);
+            const customersData = res.data
+            
+            const Button = customersData.map((customer : any) => {
+                
+                return(
+                    <button 
+                    key={customer.id} 
+                    onClick={() => handleLink("/derivery?id="+ customer.id + "&customer=" + customer.name)}
+                    >{customer.name}
+                    </button>
+                );
+                
+            })
+            setButtons(Button)
+            
+        }
+        fetchall();
+        
+    },[])
     
     return(
         <div>
             <p>納品先を選択する</p>
-            <button onClick={() => handleLink('/derivery?id=1&customer=企業１')}>納品先1</button>
-            <button onClick={() => handleLink('/derivery?id=2&customer=企業２')}>納品先2</button>
-            <button onClick={() => handleLink('/derivery?id=3&customer=企業３')}>納品先3</button>
-            <button onClick={() => handleLink('/derivery?id=4&customer=企業４')}>納品先4</button>
+            {buttons}
         </div>
     );
 }

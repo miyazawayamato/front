@@ -1,33 +1,93 @@
 import { useLocation} from 'react-router-dom';
 import React, { useState, useEffect } from "react";
-// /商品と納品先を取ってきて
-// 商品は個数(max指定)を選択、納品先は普通に一つ選択
-// 確認モーダル 金額(税あり・なし)・個数・納品先
-// post
+import axios from 'axios';
 
+type Product = {
+    id: string;
+    name: string;
+    stock: number;
+    price: string;
+}
 
 const Delivery = () => {
-    const [products, setProducts] = useState([{}])
+    
+    const [prod, setProd] = useState();
+    const [products, setProducts] = useState<Product[]>([])
+    // let products : Product[] = []
     const location = useLocation()
     const result : string[] = location.search.slice(1).split( '&' );
     const id : string = result[0].replace("id=", "")
     
     useEffect(() => {
-        console.log(products)
+        const fetchall = async () => {
+            
+            const res = await axios.get("http://localhost:8080/api/product/all");
+            // setProducts(res.data);
+            const productsData = res.data
+            
+            const Boxs = productsData.map((pro : any) => {
+                
+                return(
+                    <tr key={pro.id}>
+                        <td><input type="text" defaultValue={pro.name} name="name" disabled/></td>
+                        <td><input  type="number" maxLength={pro.stock} onChange={changeStock} name="stock"/></td>
+                        <td><input  type="number" defaultValue={pro.price} name="price" disabled/></td>
+                    </tr>
+                );
+                
+            })
+            
+            const arr : Product[] = [];
+            const objs = productsData.map((pro : any) => {
+                
+                const obj = {id : pro.id, name : pro.name, stock: 0, price : pro.price}
+                arr.push(obj)
+            })
+            
+            // console.table(arr)
+            setProd(Boxs)
+            setProducts(arr)
+            // console.log(products)
+            // products = arr
+            // console.log(products)
+        }
+        fetchall();
     }, [])
     
-    const addProduct = (pId : string) => {
+    const addProduct = () => {
         
-        setProducts([...products, {}])
+        // const cha = {...products[0], stock : 999}
+        // setProducts([{...products[1]}, {id:"2", name : "we",price : "wew", stock : 2}])
+        
+        let newArr = products.map((pro, i ) => {
+            if (1 === i) {//ここで変更するオブジェクトを指定
+                return {...pro, stock : 999};
+            } else {
+                return pro;
+            }
+        } )
+        setProducts(newArr)
+        console.log(products)
+        
+    }
+    const changeStock = () => {
+        
+        // setProducts({...products})
+        
+        // setValues({ ...values, [eName] : eValue });
+
         
     }
     
     return(
         <div>
             <p>{result[1].replace("customer=", "")}</p>
-            <button onClick={ () => addProduct("1")}>商品を追加する</button>
-            <button onClick={ () => addProduct("2")}>商品を追加する</button>
-            <button onClick={ () => addProduct("3")}>商品を追加する</button>
+            <button onClick={addProduct}>lolool</button>
+            <table>
+                <tbody>
+                    {prod}
+                </tbody>
+            </table>
         </div>
     );
 }
