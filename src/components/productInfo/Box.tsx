@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ApiPut from "../../functions/ApiPut";
 
 type Props = {
     id: string;
@@ -25,11 +26,13 @@ const Box:React.FC<Props> = ({id, name, stock, price,func}) => {
         const postData = {
             id:id,
             name:values.name,
-            email:values.stock,
-            body:values.price
+            stock:values.stock,
+            price:values.price
         };
         
-        console.log(postData)
+        ApiPut("http://localhost:8080/api/product/put", postData)
+        
+        window.location.reload();
         
     }
 
