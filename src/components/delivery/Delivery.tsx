@@ -30,7 +30,7 @@ const Delivery = () => {
                 return(
                     <tr key={pro.id}>
                         <td><input type="text" defaultValue={pro.name} name="name" disabled/></td>
-                        <td><input  type="number" maxLength={pro.stock} onChange={changeStock} name="stock"/></td>
+                        <td><input  type="number" maxLength={pro.stock} defaultValue="0" onChange={e => changeStock(e, pro.id)} name="stock"/></td>
                         <td><input  type="number" defaultValue={pro.price} name="price" disabled/></td>
                     </tr>
                 );
@@ -56,8 +56,6 @@ const Delivery = () => {
     
     const addProduct = () => {
         
-        // const cha = {...products[0], stock : 999}
-        // setProducts([{...products[1]}, {id:"2", name : "we",price : "wew", stock : 2}])
         
         let newArr = products.map((pro, i ) => {
             if (1 === i) {//ここで変更するオブジェクトを指定
@@ -70,12 +68,22 @@ const Delivery = () => {
         console.log(products)
         
     }
-    const changeStock = () => {
+    const changeStock = (e: React.ChangeEvent<HTMLInputElement>, proid : string) => {
         
-        // setProducts({...products})
+        const newStock:number = Number(e.target.value)
+        // console.log(newStock)
         
-        // setValues({ ...values, [eName] : eValue });
-
+        let newArr = products.map((prod) => {
+            if (prod.id == proid) {
+                // return {...pro, stock : 999};
+                return {...prod, stock : newStock};
+            } else {
+                return prod;
+            }
+        } )
+        setProducts(newArr)
+        // console.log(newArr)
+        
         
     }
     

@@ -1,6 +1,6 @@
-import ApiGet from "../../functions/ApiGet";
-import React, { useState, useEffect} from "react";
-import axios from 'axios';
+// import ApiGet from "../../functions/ApiGet";
+// import React, { useState, useEffect} from "react";
+// import axios from 'axios';
 
 // productsやcustoerと同じ容量
 

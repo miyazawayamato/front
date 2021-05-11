@@ -1,10 +1,10 @@
 import React, { useState, useEffect} from "react";
-import ApiGet from "../../functions/ApiGet";
-import axios from 'axios';
+// import ApiGet from "../../functions/ApiGet";
+// import axios from 'axios';
 
 const Customer = () => {
     
-    const [prod, setProd] = useState();
+    // const [prod, setProd] = useState();
     
     useEffect(()=> {
         const fetchall = async () => {
