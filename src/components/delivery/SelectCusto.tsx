@@ -21,7 +21,7 @@ const SelectCusto = () => {
                 return(
                     <button 
                     key={customer.id} 
-                    onClick={() => handleLink("/derivery?id="+ customer.id + "&customer=" + customer.name)}
+                    onClick={() => handleLink("/derivery?id="+ customer.id + "&customer=" + encodeURI(customer.name))}
                     >{customer.name}
                     </button>
                 );

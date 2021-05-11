@@ -4,6 +4,7 @@ import Menu from './components/menu/Menu';
 import Customer from './components/customer/Customer';
 import Delivery from './components/delivery/Delivery';
 import SelectCusto from './components/delivery/SelectCusto';
+import Confirm from './components/delivery/Confirm';
 import History from './components/history/History';
 import Products from './components/productInfo/Products';
 import User from './components/user/User';
@@ -18,6 +19,7 @@ const Routing = () => {
                 <Route path="/customers" component={Customer }></Route>
                 <Route path="/derivery" component={Delivery}></Route>
                 <Route path="/select/customer" component={SelectCusto}></Route>
+                <Route path="/confirm" component={Confirm}></Route>
                 <Route path="/history" component={History}></Route>
                 <Route path="/products" component={Products}></Route>
                 <Route path="/users" component={User}></Route>
