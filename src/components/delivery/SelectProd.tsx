@@ -10,7 +10,7 @@ type Product = {
     price: number;
 }
 
-const Delivery = () => {
+const SelectProd = () => {
     
     const [prodArry, setProdArry] = useState<Product[]>([])
     // const [prodArry, setProdArry] = useState<Product[]>([{id:"", name : "",stock : 0, price  : ""}])
@@ -58,7 +58,7 @@ const Delivery = () => {
     
     const history = useHistory();
     const confirm = () : void => history.push({
-        pathname: 'confirm',
+        pathname: '../confirm',
         state: { products :prodArry, customer : result[1].replace("customer=", "")}
     });
     
@@ -70,7 +70,7 @@ const Delivery = () => {
                     {(products && products.map((pro) =>
                         <tr key={pro.id}>
                             <td><input type="text" defaultValue={pro.name} disabled/></td>
-                            <td><input  type="number" maxLength={pro.stock} defaultValue="0" onChange={e => changeStock(e, pro.id)} name={pro.name}/></td>
+                            <td><input  type="number" max={pro.stock} defaultValue="0" onChange={e => changeStock(e, pro.id)} name={pro.name}/></td>
                             <td><input  type="number" defaultValue={pro.price}  disabled/></td>
                         </tr>
                     ))}
@@ -81,4 +81,4 @@ const Delivery = () => {
     );
 }
 
-export default Delivery
+export default SelectProd

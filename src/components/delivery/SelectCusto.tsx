@@ -5,10 +5,10 @@ import axios from 'axios';
 
 const SelectCusto = () => {
     
-    const history = useHistory();
-    const handleLink = (path: string) : void => history.push(path);
     const [buttons, setButtons] = useState();
     
+    const history = useHistory();
+    const handleLink = (path: string) : void => history.push(path);
     useEffect(()=> {
         const fetchall = async () => {
             
@@ -21,7 +21,7 @@ const SelectCusto = () => {
                 return(
                     <button 
                     key={customer.id} 
-                    onClick={() => handleLink("/derivery?id="+ customer.id + "&customer=" + encodeURI(customer.name))}
+                    onClick={() => handleLink("/select/products?id="+ customer.id + "&customer=" + encodeURI(customer.name))}
                     >{customer.name}
                     </button>
                 );

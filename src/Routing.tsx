@@ -2,7 +2,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import TopPage from './components/top/TopPage';
 import Menu from './components/menu/Menu';
 import Customer from './components/customer/Customer';
-import Delivery from './components/delivery/Delivery';
+import SelectProd from './components/delivery/SelectProd';
 import SelectCusto from './components/delivery/SelectCusto';
 import Confirm from './components/delivery/Confirm';
 import History from './components/history/History';
@@ -17,7 +17,7 @@ const Routing = () => {
                 <Route exact path="/" component={TopPage}></Route>
                 <Route path="/mainmenu" component={Menu}></Route>
                 <Route path="/customers" component={Customer }></Route>
-                <Route path="/derivery" component={Delivery}></Route>
+                <Route path="/select/products" component={SelectProd}></Route>
                 <Route path="/select/customer" component={SelectCusto}></Route>
                 <Route path="/confirm" component={Confirm}></Route>
                 <Route path="/history" component={History}></Route>
