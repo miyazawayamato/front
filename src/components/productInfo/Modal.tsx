@@ -13,9 +13,13 @@ const Modal:React.FC<Props> = ({name, deledata, disp, close}) => {
     
     return(
         <div className={disp}>
-            <p>{name}</p>
-            <button onClick={deledata}>削除しますか？</button>
-            <button onClick={close}>×</button>
+            <div className="innner">
+                <div className="text-right">
+                    <button onClick={close} className="delete-cancell">×</button>
+                </div>
+                <p className="delete-text">{name}<br></br>を削除してもよろしいですか？</p>
+                <button onClick={deledata} className="delete-button">削除する</button>
+            </div>
         </div>
     );
 }

@@ -31,11 +31,11 @@ const Menu = () => {
                     title="ユーザー管理"
                     link="/users"
                 />
-                <Box 
+                {/* <Box 
                     
                     title="商品情報"
                     link=""
-                />
+                /> */}
             </div>
         </div>
     );

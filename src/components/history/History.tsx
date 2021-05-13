@@ -1,39 +1,52 @@
-// import ApiGet from "../../functions/ApiGet";
-import React, { useState, useEffect} from "react";
-import axios from 'axios';
+import React, { useState } from "react";
 
-// productsやcustoerと同じ容量
+type Product = {
+    name:string;
+    qty:number;
+    price:number;
+}
+type Props = {
+    customer: string;
+    time:string;
+    products:Product[];
+}
 
-
-const History = () => {
+const History:React.FC<Props> = ({customer, time, products}) => {
     
-    const [histo, setHisto] = useState();
+    const [display, changeDisplay] = useState<string>("none");
     
-    useEffect(()=> {
-        const fetchall = async () => {
-            const res = await axios.get("http://localhost:8080/api/derivery/histories");
-            const histories = res.data
-            
-            const Boxs = histories.map((history : any) => {
-                
-                return(
-                    <div key={history.id}>{history.id}</div>
-                );
-                
-            })
-            setHisto(Boxs)
-            
+    const detailDisplay = () => {
+        if (display === "none") {
+
+            changeDisplay("")
+        } else {
+            changeDisplay("none")
         }
-        fetchall();
-        
-    },[])
-    
+    }
     
     return(
-        <div>
-            <p>納品履歴</p>
-            {histo}
-        </div>
+        <React.Fragment>
+            <tr>
+                <td>{time}</td>
+                <td>{customer}</td>
+                <td>合計</td>
+                <td><button onClick={detailDisplay}>詳しく</button></td>
+            </tr>
+            <tr className={display}>
+                <th>商品名</th>
+                <th>単価</th>
+                <th>個数</th>
+                <th>合計</th>
+            </tr>
+            {(products.map((pro) => 
+            <tr className={display} key={pro.name}>
+                <td>{pro.name}</td>
+                <td>{pro.price}</td>
+                <td>{pro.qty}</td>
+                <td>1245</td>
+            </tr>
+            ))}
+        </React.Fragment>
     );
 }
 

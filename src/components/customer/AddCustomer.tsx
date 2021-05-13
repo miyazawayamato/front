@@ -3,18 +3,19 @@ import ApiPost from "../../functions/ApiPost";
 
 interface Post {
     name: string;
-    stock: string;
-    price: string;
+    phone: string;
+    address: string;
 }
 
-const Addproduct = () => {
+const AddCustomer = () => {
     
-    const [newValues, setValues] = useState({newName: "", newStock : "", newPrice: ""});
+    const [newValues, setValues] = useState({newName: "", newPhone : "", newAddress: ""});
     
     const valuesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         
         const eValue:string  = e.target.value
         const eName = e.target.name
+        console.log(eName)
         setValues({ ...newValues, [eName] : eValue });
         
         
@@ -26,24 +27,23 @@ const Addproduct = () => {
         const PostData : Post = {
             
             name:newValues.newName,
-            stock:newValues.newStock,
-            price:newValues.newPrice
+            phone:newValues.newPhone,
+            address:newValues.newAddress
         };
         
-        const result = await ApiPost("http://localhost:8080/api/product/create", PostData);
-        console.table(result)
+        const result = await ApiPost("http://localhost:8080/api/customer/create", PostData);
         window.location.reload();
     }
     
     return(
         <div>
             <input type="text" name="newName" value={newValues.newName} onChange={valuesChange}/>
-            <input type="number"  name="newStock" value={newValues.newStock} onChange={valuesChange}/>
-            <input type="number"  name="newPrice" value={newValues.newPrice} onChange={valuesChange}/>
+            <input type="tel"  name="newPhone" value={newValues.newPhone} onChange={valuesChange}/>
+            <input type="text"  name="newAddress" value={newValues.newAddress} onChange={valuesChange}/>
             <button onClick={postProduct} type="button">追加する</button>
         </div>
     );
     
 }
 
-export default Addproduct
+export default AddCustomer

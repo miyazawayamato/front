@@ -66,12 +66,19 @@ const SelectProd = () => {
         <div>
             <p>{decodeURI(result[1].replace("customer=", ""))}</p>
             <table>
+                <thead>
+                    <tr>
+                        <th>商品名</th>
+                        <th>単価</th>
+                        <th>個数</th>
+                    </tr>
+                </thead>
                 <tbody>
                     {(products && products.map((pro) =>
                         <tr key={pro.id}>
                             <td><input type="text" defaultValue={pro.name} disabled/></td>
+                            <td><input  type="number" defaultValue={pro.price} disabled/></td>
                             <td><input  type="number" max={pro.stock} defaultValue="0" onChange={e => changeStock(e, pro.id)} name={pro.name}/></td>
-                            <td><input  type="number" defaultValue={pro.price}  disabled/></td>
                         </tr>
                     ))}
                 </tbody>

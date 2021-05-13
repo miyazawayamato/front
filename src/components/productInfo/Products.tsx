@@ -70,19 +70,21 @@ const Products = () => {
     return(
         <div>
             {/* {console.table(products)} */}
-            <AddProduct />
             <table>
+                <thead>
+                    <tr>
+                        <th>商品名</th>
+                        <th>在庫</th>
+                        <th>単価</th>
+                        <th>更新</th>
+                        <th>削除</th>
+                    </tr>
+                </thead>
                 <tbody>
                     {prod}
-                    {/* <Box 
-                        id="1"
-                        name="商品A"
-                        stock="23"
-                        price="324"
-                        func={openModal}
-                    /> */}
                 </tbody>
             </table>
+            <AddProduct />
             <Modal name={name} deledata={deleteData} disp={disp} close={closeModal}/>
         </div>
     );

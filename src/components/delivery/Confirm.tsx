@@ -1,11 +1,29 @@
 import { useLocation} from 'react-router-dom';
 import React, { useState, useEffect} from "react";
+import ApiPost from "../../functions/ApiPost";
 
 type Product = {
     id: number;
     name: string;
     stock: number;
     price: number;
+}
+
+type PostData = {
+    customer : string;
+    histories : PostHistories[]
+    products : postProducts[]
+}
+
+type PostHistories = {
+    name:string;
+    qty:number;
+    price:number;
+}
+
+type postProducts = {
+    id : number;
+    stock : number;
 }
 
 const Confirm = () => {
@@ -26,13 +44,33 @@ const Confirm = () => {
                     newProducts.push(pro)
                 }
             })
-            console.log(newProducts)
+            // console.log(newProducts)
             setProducts(newProducts)
             setTotal(num)
         }
         
         fetchall();
     }, [])
+    
+    const postDeliveryData = () => {
+        
+        const histories : PostHistories[] = []
+        const postProducts : postProducts[] = []
+        products.map((pro) => {
+            let obj1 = {name : pro.name, qty : pro.stock, price : pro.price}
+            histories.push(obj1)
+            let obj2 = {id : pro.id, stock : pro.stock}
+            postProducts.push(obj2)
+        })
+        
+        const postData : PostData = {
+            customer: customer,
+            histories: histories,
+            products: postProducts
+        }
+        // console.log(postData)
+        ApiPost("test", postData)
+    }
     
     return(
         <div>
@@ -59,7 +97,7 @@ const Confirm = () => {
                 </tbody>
             </table>
             <span>{total}</span>
-            <button>登録する</button>
+            <button onClick={postDeliveryData}>登録する</button>
         </div>
     );
 }

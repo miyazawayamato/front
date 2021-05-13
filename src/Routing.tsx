@@ -5,7 +5,7 @@ import Customer from './components/customer/Customer';
 import SelectProd from './components/delivery/SelectProd';
 import SelectCusto from './components/delivery/SelectCusto';
 import Confirm from './components/delivery/Confirm';
-import History from './components/history/History';
+import Histories from './components/history/Histories';
 import Products from './components/productInfo/Products';
 import User from './components/user/User';
 
@@ -20,7 +20,7 @@ const Routing = () => {
                 <Route path="/select/products" component={SelectProd}></Route>
                 <Route path="/select/customer" component={SelectCusto}></Route>
                 <Route path="/confirm" component={Confirm}></Route>
-                <Route path="/history" component={History}></Route>
+                <Route path="/history" component={Histories}></Route>
                 <Route path="/products" component={Products}></Route>
                 <Route path="/users" component={User}></Route>
             </Switch>
