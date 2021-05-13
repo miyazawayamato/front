@@ -78,7 +78,7 @@ const SelectProd = () => {
                         <tr key={pro.id}>
                             <td><input type="text" defaultValue={pro.name} disabled/></td>
                             <td><input  type="number" defaultValue={pro.price} disabled/></td>
-                            <td><input  type="number" max={pro.stock} defaultValue="0" onChange={e => changeStock(e, pro.id)} name={pro.name}/></td>
+                            <td><input  type="number" max={pro.stock} min="0" defaultValue="0" onChange={e => changeStock(e, pro.id)} name={pro.name}/></td>
                         </tr>
                     ))}
                 </tbody>

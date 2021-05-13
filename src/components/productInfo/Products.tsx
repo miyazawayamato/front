@@ -15,8 +15,8 @@ const Products = () => {
     
     const [name, changeName] = useState<string>("")
     const [sendId, setSendId] = useState<string>("");
-    const [prod, setProd] = useState();
     const [disp, Toggle] = useState("none");
+    const [prod, setProd] = useState();
     
     useEffect(()=> {
         const fetchall = async () => {

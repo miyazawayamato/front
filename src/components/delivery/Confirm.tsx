@@ -68,8 +68,7 @@ const Confirm = () => {
             histories: histories,
             products: postProducts
         }
-        // console.log(postData)
-        ApiPost("test", postData)
+        ApiPost("http://localhost:8080/api/derivery/register", postData)
     }
     
     return(
