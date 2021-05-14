@@ -21,7 +21,7 @@ const AddCustomer = () => {
         
     }
     
-    const postProduct = async () => {
+    const postCustomer = async () => {
         
         
         const PostData : Post = {
@@ -31,16 +31,34 @@ const AddCustomer = () => {
             address:newValues.newAddress
         };
         
-        const result = await ApiPost("http://localhost:8080/api/customer/create", PostData);
+        await ApiPost("http://localhost:8080/api/customer/create", PostData);
         window.location.reload();
     }
     
     return(
-        <div>
-            <input type="text" name="newName" value={newValues.newName} onChange={valuesChange}/>
+        <div className="add-product">
+            <table className="products-table">
+                <thead>
+                    <tr>
+                        <th className="customer-th-35">納品先</th>
+                        <th className="customer-th-tell">電話番号</th>
+                        <th className="customer-th-35">住所</th>
+                        <th>追加</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="newName" value={newValues.newName} onChange={valuesChange}/></td>
+                        <td><input type="tel"  name="newPhone" value={newValues.newPhone} onChange={valuesChange}/></td>
+                        <td><input type="text"  name="newAddress" value={newValues.newAddress} onChange={valuesChange}/></td>
+                        <td><button onClick={postCustomer} type="button">追加する</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            {/* <input type="text" name="newName" value={newValues.newName} onChange={valuesChange}/>
             <input type="tel"  name="newPhone" value={newValues.newPhone} onChange={valuesChange}/>
-            <input type="text"  name="newAddress" value={newValues.newAddress} onChange={valuesChange}/>
-            <button onClick={postProduct} type="button">追加する</button>
+            <input type="text"  name="newAddress" value={newValues.newAddress} onChange={valuesChange}/> */}
+            {/* <button onClick={postProduct} type="button">追加する</button> */}
         </div>
     );
     

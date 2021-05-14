@@ -36,11 +36,29 @@ const Addproduct = () => {
     }
     
     return(
-        <div>
-            <input type="text" name="newName" value={newValues.newName} onChange={valuesChange}/>
+        <div className="add-product">
+            <table className="products-table">
+                <thead>
+                    <tr>
+                        <th className="products-th-name">商品名</th>
+                        <th>在庫</th>
+                        <th>単価</th>
+                        <th>追加</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="newName" value={newValues.newName} onChange={valuesChange}/></td>
+                        <td><input type="number"  name="newStock" value={newValues.newStock} onChange={valuesChange}/></td>
+                        <td><input type="number"  name="newPrice" value={newValues.newPrice} onChange={valuesChange}/></td>
+                        <td><button onClick={postProduct} type="button">追加する</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            {/* <input type="text" name="newName" value={newValues.newName} onChange={valuesChange}/>
             <input type="number"  name="newStock" value={newValues.newStock} onChange={valuesChange}/>
             <input type="number"  name="newPrice" value={newValues.newPrice} onChange={valuesChange}/>
-            <button onClick={postProduct} type="button">追加する</button>
+            <button onClick={postProduct} type="button">追加する</button> */}
         </div>
     );
     

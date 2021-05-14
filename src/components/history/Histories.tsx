@@ -8,10 +8,10 @@ type Delivery = {
     id: number;
     customer: string;
     time:string;
-    histories:History[]
+    histories:HistoryType[]
 }
 
-type History = {
+type HistoryType = {
     id:number
     name:string;
     qty:number;
@@ -53,12 +53,10 @@ const Histories = () => {
     }
     
     const deleteData = () => {
-       console.log(url) 
-       console.log(sendId) 
         
-        // ApiDelete(url + sendId)
+        ApiDelete(url + sendId)
         
-        // window.location.reload();
+        window.location.reload();
     }
     
     

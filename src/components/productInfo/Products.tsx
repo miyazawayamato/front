@@ -69,11 +69,12 @@ const Products = () => {
     }
     return(
         <div>
-            {/* {console.table(products)} */}
-            <table>
+            <h4>在庫管理・編集</h4>
+            <AddProduct />
+            <table className="products-table">
                 <thead>
                     <tr>
-                        <th>商品名</th>
+                        <th className="products-th-name">商品名</th>
                         <th>在庫</th>
                         <th>単価</th>
                         <th>更新</th>
@@ -84,7 +85,6 @@ const Products = () => {
                     {prod}
                 </tbody>
             </table>
-            <AddProduct />
             <Modal name={name} deledata={deleteData} disp={disp} close={closeModal}/>
         </div>
     );

@@ -5,7 +5,7 @@ import Modal from "../productInfo/Modal";
 import ApiDelete from "../../functions/ApiDelete";
 import AddCustomer from "./AddCustomer";
 
-type Customer = {
+type CustomerType = {
     id: string;
     name: string;
     address: string;
@@ -14,7 +14,7 @@ type Customer = {
 
 const Customer = () => {
     
-    const [customers, setCustomers] = useState<Customer[]>([]);
+    const [customers, setCustomers] = useState<CustomerType[]>([]);
     const [name, changeName] = useState<string>("");
     const [disp, Toggle] = useState("none");
     const [sendId, setSendId] = useState<string>("");
@@ -52,8 +52,18 @@ const Customer = () => {
     
     return (
         <div>
-            <p>納品先</p>
-            <table>
+            <h4>納品先管理・編集</h4>
+            <AddCustomer />
+            <table className="products-table">
+                <thead>
+                    <tr>
+                        <th className="customer-th-35">納品先</th>
+                        <th className="customer-th-tell">電話番号</th>
+                        <th className="customer-th-35">住所</th>
+                        <th>更新</th>
+                        <th>削除</th>
+                    </tr>
+                </thead>
                 <tbody>
                     {customers.map((cust ) => 
                         <Box 
@@ -66,7 +76,6 @@ const Customer = () => {
                     )}
                 </tbody>
             </table>
-            <AddCustomer />
             <Modal name={name} deledata={deleteData} disp={disp} close={closeModal}/>
         </div>
     );

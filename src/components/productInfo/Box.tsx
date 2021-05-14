@@ -39,9 +39,9 @@ const Box:React.FC<Props> = ({id, name, stock, price,func}) => {
     
     return(
         <tr>
-            <td><input type="text" defaultValue={values.name} onChange={valuesChange} name="name"/></td>
-            <td><input  type="number" defaultValue={stock} onChange={valuesChange} name="stock"/></td>
-            <td><input  type="number" defaultValue={price} onChange={valuesChange} name="price"/></td>
+            <td ><input type="text" defaultValue={values.name} onChange={valuesChange} name="name"/></td>
+            <td><input  className="text-right" type="number" defaultValue={stock} onChange={valuesChange} name="stock"/></td>
+            <td><input  className="text-right" type="number" defaultValue={price} onChange={valuesChange} name="price"/></td>
             <td><button onClick={putData}>更新</button></td>
             <td><button onClick={() => func(id,name)}>削除</button></td>
         </tr>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ApiDelete from "../../functions/ApiDelete";
 
 type Props = {
     dId:number
