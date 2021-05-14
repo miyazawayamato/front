@@ -12,6 +12,11 @@
     text-align: right;
 }
 
+h4 {
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
 .block {
     // background: rgb(184, 183, 183);
     // opacity: 0.3;
@@ -52,4 +57,16 @@
     margin-top: 30px;
     margin-left: auto;
     padding: 10px 30px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border: 1px solid;
+}
+
+th, td {
+    border: 1px solid;
 }

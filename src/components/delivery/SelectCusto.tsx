@@ -20,6 +20,7 @@ const SelectCusto = () => {
                 
                 return(
                     <button 
+                    className="selcus-button"
                     key={customer.id} 
                     onClick={() => handleLink("/select/products?id="+ customer.id + "&customer=" + encodeURI(customer.name))}
                     >{customer.name}
@@ -37,7 +38,9 @@ const SelectCusto = () => {
     return(
         <div>
             <p>納品先を選択する</p>
-            {buttons}
+            <div className="buttons">
+                {buttons}
+            </div>
         </div>
     );
 }

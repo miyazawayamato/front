@@ -13,7 +13,6 @@ type Product = {
 const SelectProd = () => {
     
     const [prodArry, setProdArry] = useState<Product[]>([])
-    // const [prodArry, setProdArry] = useState<Product[]>([{id:"", name : "",stock : 0, price  : ""}])
     const [products, setProducts] = useState<Product[]>([])
     const location = useLocation()
     const result : string[] = location.search.slice(1).split( '&' );
@@ -64,26 +63,31 @@ const SelectProd = () => {
     
     return(
         <div>
-            <p>{decodeURI(result[1].replace("customer=", ""))}</p>
-            <table>
+            <h4>在庫個数選択</h4>
+            <p className="selpro-customer">納品先：{decodeURI(result[1].replace("customer=", ""))}</p>
+            <table className="selpro-table">
                 <thead>
                     <tr>
-                        <th>商品名</th>
-                        <th>単価</th>
-                        <th>個数</th>
+                        <th className="selpro-th-name">商品名</th>
+                        <th className="selpro-th-price">単価</th>
+                        <th className="selpro-th-stock">個数</th>
                     </tr>
                 </thead>
+                    {/* <td><input type="text" defaultValue={pro.name} disabled/></td> */}
+                    {/* <td><input  type="number" defaultValue={pro.price} disabled/></td> */}
                 <tbody>
                     {(products && products.map((pro) =>
                         <tr key={pro.id}>
-                            <td><input type="text" defaultValue={pro.name} disabled/></td>
-                            <td><input  type="number" defaultValue={pro.price} disabled/></td>
-                            <td><input  type="number" max={pro.stock} min="0" defaultValue="0" onChange={e => changeStock(e, pro.id)} name={pro.name}/></td>
+                            <td>{pro.name}</td>
+                            <td className="text-right">{pro.price}円</td>
+                            <td ><input  type="number" max={pro.stock} min="0" defaultValue="0" onChange={e => changeStock(e, pro.id)} name={pro.name} className="selpro-input text-right" /></td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-            <button onClick={confirm}>確認画面へ</button>
+            <div className="selpro-confirm">
+                <button onClick={confirm}>登録確認画面へ</button>
+            </div>
         </div>
     );
 }

@@ -32,6 +32,7 @@ const Confirm = () => {
     const customer : string = decodeURI(datas.customer)
     const [products, setProducts] = useState<Product[]>([])
     const [total, setTotal] = useState<number> ()
+    const [withTax, setWithTax] = useState<number> ()
     
     useEffect(() => {
         const fetchall = () => {
@@ -47,6 +48,7 @@ const Confirm = () => {
             // console.log(newProducts)
             setProducts(newProducts)
             setTotal(num)
+            setWithTax(Math.round(num * 1.1))
         }
         
         fetchall();
@@ -73,30 +75,33 @@ const Confirm = () => {
     
     return(
         <div>
-            <p>確認画面</p>
-            <p>企業名:{customer}</p>
-            <table>
+            <h4>確認画面</h4>
+            <p className="selpro-customer">納品先：{customer}</p>
+            <table className="confirm-table">
                 <thead>
                     <tr>
-                        <th>商品名</th>
-                        <th>単価</th>
-                        <th>個数</th>
-                        <th>商品合計</th>
+                        <th className="selpro-th-name">商品名</th>
+                        <th className="selpro-th-price">単価</th>
+                        <th className="selpro-th-price">個数</th>
+                        <th className="selpro-th-price">商品合計</th>
                     </tr>
                 </thead>
                 <tbody>
                     {(products.map((pro) => 
                         <tr key={pro.id}>
                             <td>{pro.name}</td>
-                            <td>{pro.price}</td>
-                            <td>{pro.stock}</td>
-                            <td>{pro.price * pro.stock}</td>
+                            <td className="text-right">{pro.price}円</td>
+                            <td className="text-right">{pro.stock}</td>
+                            <td className="text-right">{pro.price * pro.stock}円</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-            <span>{total}</span>
-            <button onClick={postDeliveryData}>登録する</button>
+            <div className="confirm-post">
+                <p>総計{total}円</p>
+                <p>税込み{withTax}円</p>
+                <button onClick={postDeliveryData}>登録する</button>
+            </div>
         </div>
     );
 }
