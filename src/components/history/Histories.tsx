@@ -62,8 +62,17 @@ const Histories = () => {
     
     return(
         <div>
-            <p>納品履歴</p>
-            <table>
+            <h4>納品履歴</h4>
+            <table className="history-table">
+                <thead>
+                    <tr>
+                        <th>登録日</th>
+                        <th>企業名</th>
+                        <th>総額</th>
+                        <th>詳しく</th>
+                        <th>削除</th>
+                    </tr>
+                </thead>
                 <tbody>
                     {(histries && histries.map((his) =>
                         <History

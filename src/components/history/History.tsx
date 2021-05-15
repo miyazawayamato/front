@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 type Props = {
     dId:number
@@ -17,28 +17,42 @@ type Product = {
 const History:React.FC<Props> = ({dId, customer, time, products , func}) => {
     
     const [display, changeDisplay] = useState<string>("none");
+    const [total, setTotal] = useState<number>();
     const deleteDerivery : string = "http://localhost:8080/api/derivery/delete/" 
     const productDerivery : string = "http://localhost:8080/api/derivery/delete/products/history/" 
     
+    useEffect(()=> {
+        
+        const totalCul  = () => {
+            
+            let total = 0
+            products.map((pro) => {
+                total += pro.qty * pro.price
+            })
+            setTotal(total)
+        }
+        totalCul();
+    },[])
+    
     const detailDisplay = () => {
         if (display === "none") {
-
             changeDisplay("")
         } else {
             changeDisplay("none")
         }
     }
     
+    
     return(
         <React.Fragment>
-            <tr>
+            <tr className="history-tr-bold">
                 <td>{time}</td>
                 <td>{customer}</td>
-                <td>合計</td>
+                <td>{total}</td>
                 <td><button onClick={detailDisplay}>詳しく</button></td>
                 <td><button onClick={() => func(dId, customer, time, deleteDerivery)}>削除する</button></td>
             </tr>
-            <tr className={display}>
+            <tr className={display} >
                 <th>商品名</th>
                 <th>単価</th>
                 <th>個数</th>
@@ -50,7 +64,7 @@ const History:React.FC<Props> = ({dId, customer, time, products , func}) => {
                 <td>{pro.name}</td>
                 <td>{pro.price}</td>
                 <td>{pro.qty}</td>
-                <td>{pro.id}</td>
+                <td>{pro.price * pro.qty}</td>
                 <td><button onClick={() => func(pro.id, pro.name, customer, productDerivery)}>削除する</button></td>
             </tr>
             ))}
