@@ -57,7 +57,7 @@ const History:React.FC<Props> = ({dId, customer, time, products , func}) => {
                 <th>単価</th>
                 <th>個数</th>
                 <th>合計</th>
-                <td>削除する</td>
+                <th>削除する</th>
             </tr>
             {(products.map((pro) => 
             <tr className={display} key={pro.name}>
