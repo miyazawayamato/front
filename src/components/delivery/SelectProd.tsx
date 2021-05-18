@@ -1,7 +1,7 @@
 import { useLocation, useHistory} from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-// import ApiPost from "../../functions/ApiPost";
+import {host} from "../../Host"
 
 type Product = {
     id: number;
@@ -21,7 +21,7 @@ const SelectProd = () => {
     useEffect(() => {
         const fetchall = async () => {
             
-            const res = await axios.get("http://localhost:8080/api/product/all");
+            const res = await axios.get(host + "api/product/all");
             const productsData = res.data
             setProducts(productsData);
             
@@ -73,8 +73,6 @@ const SelectProd = () => {
                         <th className="selpro-th-stock">個数</th>
                     </tr>
                 </thead>
-                    {/* <td><input type="text" defaultValue={pro.name} disabled/></td> */}
-                    {/* <td><input  type="number" defaultValue={pro.price} disabled/></td> */}
                 <tbody>
                     {(products && products.map((pro) =>
                         <tr key={pro.id}>

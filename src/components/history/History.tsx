@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import {host} from "../../Host"
+
 
 type Props = {
     dId:number
@@ -18,8 +20,8 @@ const History:React.FC<Props> = ({dId, customer, time, products , func}) => {
     
     const [display, changeDisplay] = useState<string>("none");
     const [total, setTotal] = useState<number>();
-    const deleteDerivery : string = "http://localhost:8080/api/derivery/delete/" 
-    const productDerivery : string = "http://localhost:8080/api/derivery/delete/products/history/" 
+    const deleteDerivery : string = host + "api/derivery/delete/" 
+    const productDerivery : string = host + "api/derivery/delete/products/history/" 
     
     useEffect(()=> {
         

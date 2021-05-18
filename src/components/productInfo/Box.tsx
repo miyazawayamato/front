@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import ApiPut from "../../functions/ApiPut";
+import {host} from "../../Host"
+
 
 type Props = {
     id: string;
@@ -30,7 +32,7 @@ const Box:React.FC<Props> = ({id, name, stock, price,func}) => {
             price:values.price
         };
         
-        ApiPut("http://localhost:8080/api/product/put", postData)
+        ApiPut(host + "api/product/put", postData)
         
         window.location.reload();
         

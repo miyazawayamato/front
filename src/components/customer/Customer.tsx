@@ -4,6 +4,8 @@ import Box from "./Box";
 import Modal from "../productInfo/Modal";
 import ApiDelete from "../../functions/ApiDelete";
 import AddCustomer from "./AddCustomer";
+import {host} from "../../Host"
+
 
 type CustomerType = {
     id: string;
@@ -22,7 +24,7 @@ const Customer = () => {
     useEffect(()=> {
         const fetchall = async () => {
             
-            const res = await axios.get("http://localhost:8080/api/customers");
+            const res = await axios.get(host + "api/customers");
             setCustomers(res.data)
         }
         fetchall();
@@ -44,7 +46,7 @@ const Customer = () => {
     
     const deleteData = () => {
         
-        ApiDelete("http://localhost:8080/api/customer/delete/" + sendId)
+        ApiDelete(host + "api/customer/delete/" + sendId)
         
         window.location.reload();
     }

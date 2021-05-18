@@ -55,10 +55,6 @@ const AddCustomer = () => {
                     </tr>
                 </tbody>
             </table>
-            {/* <input type="text" name="newName" value={newValues.newName} onChange={valuesChange}/>
-            <input type="tel"  name="newPhone" value={newValues.newPhone} onChange={valuesChange}/>
-            <input type="text"  name="newAddress" value={newValues.newAddress} onChange={valuesChange}/> */}
-            {/* <button onClick={postProduct} type="button">追加する</button> */}
         </div>
     );
     

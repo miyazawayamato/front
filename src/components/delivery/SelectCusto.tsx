@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import React, { useState, useEffect} from "react";
 import axios from 'axios';
+import {host} from "../../Host"
 
 
 const SelectCusto = () => {
@@ -12,7 +13,7 @@ const SelectCusto = () => {
     useEffect(()=> {
         const fetchall = async () => {
             
-            const res = await axios.get("http://localhost:8080/api/customers");
+            const res = await axios.get(host + "api/customers");
             // setProducts(res.data);
             const customersData = res.data
             

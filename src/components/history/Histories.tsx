@@ -3,6 +3,8 @@ import axios from 'axios';
 import History from "./History";
 import Modal from "./Modal";
 import ApiDelete from "../../functions/ApiDelete";
+import {host} from "../../Host"
+
 
 type Delivery = {
     id: number;
@@ -30,7 +32,7 @@ const Histories = () => {
     
     useEffect(()=> {
         const fetchall = async () => {
-            const res = await axios.get("http://localhost:8080/api/derivery/histories");
+            const res = await axios.get(host + "api/derivery/histories");
             const datas = res.data
             setHistries(datas)
         }

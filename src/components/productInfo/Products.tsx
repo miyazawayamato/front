@@ -4,12 +4,7 @@ import Box from "./Box";
 import Modal from "./Modal";
 import AddProduct from "./AddProduct";
 import ApiDelete from "../../functions/ApiDelete";
-
-//カウント機能(スピナー機能)
-//商品名と金額と個数
-//保存ボタン(失敗のメッセージ)と削除ボタン(モーダル)
-
-
+import {host} from "../../Host"
 
 const Products = () => {
     
@@ -21,12 +16,11 @@ const Products = () => {
     useEffect(()=> {
         const fetchall = async () => {
             
-            const res = await axios.get("http://localhost:8080/api/product/all");
-            // setProducts(res.data);
+            const res = await axios.get(host + "api/product/all");
             const productsData = res.data
             
             const Boxs = productsData.map((pro : any) => {
-                // console.log(pro.name)
+                
                 return(
                     <Box 
                         key={pro.id}

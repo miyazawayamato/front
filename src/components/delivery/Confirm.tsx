@@ -1,6 +1,8 @@
 import { useLocation} from 'react-router-dom';
 import React, { useState, useEffect} from "react";
 import ApiPost from "../../functions/ApiPost";
+import {host} from "../../Host"
+
 
 type Product = {
     id: number;
@@ -70,7 +72,7 @@ const Confirm = () => {
             histories: histories,
             products: postProducts
         }
-        ApiPost("http://localhost:8080/api/derivery/register", postData)
+        ApiPost(host + "api/derivery/register", postData)
     }
     
     return(

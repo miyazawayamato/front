@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import ApiPost from "../../functions/ApiPost";
+import {host} from "../../Host"
+
 
 interface Post {
     name: string;
@@ -30,7 +32,7 @@ const Addproduct = () => {
             price:newValues.newPrice
         };
         
-        const result = await ApiPost("http://localhost:8080/api/product/create", PostData);
+        const result = await ApiPost(host + "api/product/create", PostData);
         console.table(result)
         window.location.reload();
     }
@@ -55,10 +57,6 @@ const Addproduct = () => {
                     </tr>
                 </tbody>
             </table>
-            {/* <input type="text" name="newName" value={newValues.newName} onChange={valuesChange}/>
-            <input type="number"  name="newStock" value={newValues.newStock} onChange={valuesChange}/>
-            <input type="number"  name="newPrice" value={newValues.newPrice} onChange={valuesChange}/>
-            <button onClick={postProduct} type="button">追加する</button> */}
         </div>
     );
     
