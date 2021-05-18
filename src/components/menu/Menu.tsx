@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
 import Box from './Box';
+// import ApiGet from "../../functions/ApiGet"
 
 const Menu = () => {
+    
+    
+    
     return(
         <div>
-            <h5 className="menu-title">メニュー</h5>
-            <Link to="/">top</Link>
+            <h4 className="menu-title">メニュー</h4>
+            {/* <Link to="/">top</Link> */}
             <div className="menus">
                 <Box 
                     title="納品"

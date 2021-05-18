@@ -1,4 +1,3 @@
-// const host : string = "https://serene-beach-21755.herokuapp.com/"
-export const host : string = "http://localhost:8080/"
+export const host : string = "https://serene-beach-21755.herokuapp.com/"
 
-// expect default host
+// export const host : string = "http://localhost:8080/"
