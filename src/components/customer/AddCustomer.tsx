@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import ApiPost from "../../functions/ApiPost";
+import {host} from "../../Host"
+
 
 interface Post {
     name: string;
@@ -31,7 +33,7 @@ const AddCustomer = () => {
             address:newValues.newAddress
         };
         
-        await ApiPost("http://localhost:8080/api/customer/create", PostData);
+        await ApiPost(host + "api/customer/create", PostData);
         window.location.reload();
     }
     
