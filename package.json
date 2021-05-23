@@ -1,5 +1,6 @@
 {
   "name": "demo-port",
+  "homepage": "https://miyazawayamato.github.io/typescript-/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
