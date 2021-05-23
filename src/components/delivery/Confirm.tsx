@@ -1,4 +1,4 @@
-import { useLocation} from 'react-router-dom';
+import { useLocation, useHistory} from 'react-router-dom';
 import React, { useState, useEffect} from "react";
 import ApiPost from "../../functions/ApiPost";
 import {host} from "../../Host"
@@ -29,12 +29,14 @@ type postProducts = {
 }
 
 const Confirm = () => {
-    const location = useLocation();
+    const location = useLocation()
+    const history = useHistory()
     const datas : any = location.state
     const customer : string = decodeURI(datas.customer)
     const [products, setProducts] = useState<Product[]>([])
     const [total, setTotal] = useState<number> ()
     const [withTax, setWithTax] = useState<number> ()
+    const handleLink = (path: string) : void => history.push(path)
     
     useEffect(() => {
         const fetchall = () => {
@@ -73,6 +75,8 @@ const Confirm = () => {
             products: postProducts
         }
         ApiPost(host + "api/derivery/register", postData)
+        
+        handleLink("/history");
     }
     
     return(

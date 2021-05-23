@@ -1,10 +1,24 @@
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
 import Box from './Box';
-// import ApiGet from "../../functions/ApiGet"
+import axios from 'axios';
+import {host} from "../../Host"
+
+
 
 const Menu = () => {
     
-    
+    useEffect(()=> {
+        
+        const herokuStartUp = async () => {
+            
+            const res = await axios.get(host + "api/derivery/histories");
+            console.log("OK")
+        }
+        
+        herokuStartUp();
+        
+    },[])
     
     return(
         <div>

@@ -5,6 +5,7 @@ import Modal from "../productInfo/Modal";
 import ApiDelete from "../../functions/ApiDelete";
 import AddCustomer from "./AddCustomer";
 import {host} from "../../Host"
+import { Link } from "react-router-dom";
 
 
 type CustomerType = {
@@ -79,6 +80,7 @@ const Customer = () => {
                 </tbody>
             </table>
             <Modal name={name} deledata={deleteData} disp={disp} close={closeModal}/>
+            <Link to="/mainmenu" className="top-to-link">top</Link>
         </div>
     );
 }

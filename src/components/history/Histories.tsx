@@ -4,6 +4,7 @@ import History from "./History";
 import Modal from "./Modal";
 import ApiDelete from "../../functions/ApiDelete";
 import {host} from "../../Host"
+import { Link } from "react-router-dom";
 
 
 type Delivery = {
@@ -88,6 +89,7 @@ const Histories = () => {
                 </tbody>
             </table>
             <Modal name={name} time={time} deledata={deleteData} disp={disp} close={closeModal}/>
+            <Link to="/mainmenu" className="top-to-link">top</Link>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import React, { useState, useEffect} from "react";
 import axios from 'axios';
 import {host} from "../../Host"
@@ -38,10 +38,12 @@ const SelectCusto = () => {
     
     return(
         <div>
+            <h4>納品</h4>
             <p>納品先を選択する</p>
             <div className="buttons">
                 {buttons}
             </div>
+            <Link to="/mainmenu" className="top-to-link">top</Link>
         </div>
     );
 }

@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import AddProduct from "./AddProduct";
 import ApiDelete from "../../functions/ApiDelete";
 import {host} from "../../Host"
+import { Link } from "react-router-dom";
 
 const Products = () => {
     
@@ -80,6 +81,7 @@ const Products = () => {
                 </tbody>
             </table>
             <Modal name={name} deledata={deleteData} disp={disp} close={closeModal}/>
+            <Link to="/mainmenu" className="top-to-link">top</Link>
         </div>
     );
 }
