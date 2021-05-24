@@ -79,6 +79,7 @@ const Histories = () => {
                 <tbody>
                     {(histries && histries.map((his) =>
                         <History
+                            key={his.id}
                             dId={his.id}
                             customer={his.customer}
                             time={his.time}

@@ -8,6 +8,7 @@ type Props = {
     name: string;
     address: string;
     phone:number;
+    key:string;
     func:(id : string, name : string) => any
 }
 

@@ -12,7 +12,7 @@ import User from './components/user/User';
 const Routing = () => {
     return(
         <div className="main">
-            <Router >
+            <Router basename={process.env.PUBLIC_URL}>
             <Switch>
                 <Route exact path="/" component={TopPage}></Route>
                 <Route path="/mainmenu" component={Menu}></Route>

@@ -75,6 +75,7 @@ const Customer = () => {
                             address={cust.address}
                             phone={cust.phone}
                             func={openModal}
+                            key={cust.id}
                         />
                     )}
                 </tbody>

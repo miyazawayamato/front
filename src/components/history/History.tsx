@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {host} from "../../Host"
+import {TimeStampFormat}  from "./TimeFormat"
 
 
 type Props = {
@@ -7,6 +8,7 @@ type Props = {
     customer: string;
     time:string;
     products:Product[];
+    key:number;
     func:(id : number, name : string, time : string, url : string) => any
 }
 type Product = {
@@ -48,7 +50,7 @@ const History:React.FC<Props> = ({dId, customer, time, products , func}) => {
     return(
         <React.Fragment>
             <tr className="history-tr-bold">
-                <td>{time}</td>
+                <td>{TimeStampFormat(time)}</td>
                 <td>{customer}</td>
                 <td>{total}</td>
                 <td><button onClick={detailDisplay}>詳しく</button></td>
