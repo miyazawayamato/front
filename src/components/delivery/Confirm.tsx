@@ -76,7 +76,7 @@ const Confirm = () => {
         }
         ApiPost(host + "api/derivery/register", postData)
         
-        handleLink("/history");
+        handleLink("/mainmenu");
     }
     
     return(

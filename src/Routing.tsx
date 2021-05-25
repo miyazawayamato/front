@@ -14,7 +14,7 @@ const Routing = () => {
         <div className="main">
             <Router basename={process.env.PUBLIC_URL}>
             <Switch>
-                <Route exact path="/" component={TopPage}></Route>
+                <Route exact path="/" component={Menu}></Route>
                 <Route path="/mainmenu" component={Menu}></Route>
                 <Route path="/customers" component={Customer }></Route>
                 <Route path="/select/products" component={SelectProd}></Route>
