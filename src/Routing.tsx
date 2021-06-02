@@ -1,5 +1,4 @@
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import TopPage from './components/top/TopPage';
 import Menu from './components/menu/Menu';
 import Customer from './components/customer/Customer';
 import SelectProd from './components/delivery/SelectProd';
@@ -7,7 +6,6 @@ import SelectCusto from './components/delivery/SelectCusto';
 import Confirm from './components/delivery/Confirm';
 import Histories from './components/history/Histories';
 import Products from './components/productInfo/Products';
-import User from './components/user/User';
 
 const Routing = () => {
     return(
