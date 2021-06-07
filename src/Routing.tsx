@@ -20,7 +20,6 @@ const Routing = () => {
                 <Route path="/confirm" component={Confirm}></Route>
                 <Route path="/history" component={Histories}></Route>
                 <Route path="/products" component={Products}></Route>
-                {/* <Route path="/users" component={User}></Route> */}
             </Switch>
             </Router>
         </div>
